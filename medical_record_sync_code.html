@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Medical Record Sync</title>
+<!-- BEGIN: Scripts -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'senior-blue': '#EBF4FF',
+            'senior-accent': '#2B6CB0',
+            'senior-text': '#2D3748',
+            'soft-gray': '#F7FAFC'
+          },
+          fontSize: {
+            'senior-base': '1.125rem', // 18px for better readability
+            'senior-title': '1.5rem',  // 24px
+          }
+        }
+      }
+    }
+  </script>
+<!-- END: Scripts -->
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="layout-adjustments">
+    /* Ensuring the mobile screen fills the viewport and prevents horizontal scroll */
+    body {
+      background-color: #F7FAFC;
+      font-family: system-ui, -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .safe-area-bottom {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  </style>
+<style data-purpose="accessibility">
+    /* High contrast focus states for senior accessibility */
+    button:focus {
+      outline: 3px solid #4299E1;
+      outline-offset: 2px;
+    }
+    /* Larger touch targets for senior users */
+    .touch-target {
+      min-height: 64px;
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="flex flex-col min-h-screen text-senior-text">
+<!-- BEGIN: Header -->
+<header class="bg-white px-6 pt-12 pb-6 border-b border-gray-100 shadow-sm" data-purpose="navigation-header">
+<div class="flex items-center space-x-4">
+<button aria-label="Go back" class="p-2 -ml-2 text-senior-accent">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.75 19.5L8.25 12l7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<h1 class="text-senior-title font-bold text-gray-800">Health Sync</h1>
+</div>
+</header>
+<!-- END: Header -->
+<!-- BEGIN: Main Content -->
+<main class="flex-grow flex flex-col px-6 py-8 space-y-8 max-w-lg mx-auto w-full">
+<!-- BEGIN: Explanation Section -->
+<section class="text-center space-y-4" data-purpose="onboarding-explanation">
+<!-- Illustrative Icon -->
+<div class="flex justify-center mb-2">
+<div class="bg-senior-blue p-6 rounded-full">
+<svg class="w-12 h-12 text-senior-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m3 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+<h2 class="text-2xl font-semibold leading-tight px-4">Connect Your Health Information</h2>
+<p class="text-gray-600 text-senior-base leading-relaxed">
+        Linking your records helps us automatically set up your medication schedule and appointment reminders for you.
+      </p>
+</section>
+<!-- END: Explanation Section -->
+<!-- BEGIN: Action Buttons -->
+<section class="space-y-4" data-purpose="primary-actions">
+<!-- Connect Hospital Button -->
+<button class="w-full bg-senior-accent text-white rounded-2xl p-6 flex items-center justify-between shadow-lg active:scale-[0.98] transition-transform touch-target" data-purpose="connect-provider-trigger" id="btn-connect-hospital">
+<div class="flex items-center space-x-4">
+<svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-xl font-bold">Connect My Hospital</span>
+</div>
+<svg class="w-6 h-6 opacity-70" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.25 4.5l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Upload Records Button -->
+<button class="w-full bg-white border-2 border-senior-accent text-senior-accent rounded-2xl p-6 flex items-center justify-between shadow-sm active:scale-[0.98] transition-transform touch-target" data-purpose="upload-records-trigger" id="btn-upload-records">
+<div class="flex items-center space-x-4">
+<svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-xl font-bold">Upload Paper Records</span>
+</div>
+<svg class="w-6 h-6 opacity-70" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.25 4.5l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</section>
+<!-- END: Action Buttons -->
+<!-- BEGIN: Trust/Privacy Footer -->
+<section class="mt-auto pt-8 border-t border-gray-100 text-center" data-purpose="privacy-reassurance">
+<div class="flex items-center justify-center space-x-2 text-gray-500 mb-4">
+<svg class="w-5 h-5 text-green-600" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z" fill-rule="evenodd"></path>
+</svg>
+<span class="text-sm font-medium uppercase tracking-wider">Secure &amp; Private</span>
+</div>
+<p class="text-sm text-gray-400">
+        Your medical data is encrypted and only used to improve your care. We never share your records with third parties.
+      </p>
+</section>
+<!-- END: Trust/Privacy Footer -->
+</main>
+<!-- END: Main Content -->
+<!-- BEGIN: Bottom Safe Area Spacer -->
+<div class="safe-area-bottom h-8"></div>
+<!-- END: Bottom Safe Area Spacer -->
+<!-- BEGIN: Logic -->
+<script data-purpose="interaction-handlers">
+    document.getElementById('btn-connect-hospital').addEventListener('click', () => {
+      console.log('Initiating Hospital Sync Flow...');
+      // Future logic for OAuth or Provider Search
+    });
+
+    document.getElementById('btn-upload-records').addEventListener('click', () => {
+      console.log('Opening Camera for Record Upload...');
+      // Future logic for Image Picker / Camera Access
+    });
+  </script>
+<!-- END: Logic -->
+</body></html>

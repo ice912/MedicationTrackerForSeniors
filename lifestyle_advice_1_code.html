@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lifestyle Advice for Seniors</title>
+<!-- Tailwind CSS v3 CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="typography">
+    /* High-legibility font stack and specific sizes for senior users */
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background-color: #f8fafc;
+    }
+    .advice-text {
+      line-height: 1.4;
+      font-weight: 500;
+    }
+  </style>
+<style data-purpose="layout-adjustments">
+    /* Ensure the mobile view feels like a native iOS app */
+    .safe-area-inset-top {
+      padding-top: env(safe-area-inset-top);
+    }
+    .safe-area-inset-bottom {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    /* Smooth scrolling for the feed */
+    .advice-feed {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-800">
+<!-- BEGIN: MainHeader -->
+<header class="bg-white border-b border-slate-200 sticky top-0 z-10 safe-area-inset-top" data-purpose="application-header">
+<div class="px-6 py-4 flex items-center justify-between">
+<h1 class="text-2xl font-bold text-slate-900">Lifestyle Advice</h1>
+<!-- Simple refresh button for new tips -->
+<button aria-label="Refresh Advice" class="p-2 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M3 21v-5h5"></path></svg>
+</button>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: AdviceFeed -->
+<main class="advice-feed p-4 space-y-4 max-w-md mx-auto" data-purpose="lifestyle-advice-container">
+<!-- Daily Greeting -->
+<section class="mb-6 px-2">
+<p class="text-lg text-slate-500 font-medium">Hello there!</p>
+<h2 class="text-3xl font-extrabold text-slate-900">Today's Suggestions</h2>
+</section>
+<!-- BEGIN: AdviceCard_Walking -->
+<article class="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 flex flex-col gap-4" data-purpose="advice-card">
+<div class="flex items-center gap-4">
+<!-- Icon Container -->
+<div class="w-16 h-16 rounded-2xl bg-orange-100 flex items-center justify-center flex-shrink-0" data-purpose="icon-wrapper">
+<svg fill="none" height="32" stroke="#ea580c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M13 4v16"></path><path d="M17 4v16"></path><path d="M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"></path><path d="M9 20V4"></path><path d="M5 20V4"></path></svg>
+</div>
+<!-- Simple text content with high contrast -->
+<p class="advice-text text-xl sm:text-2xl text-slate-800">
+          Walk for <span class="text-orange-600 font-bold">10 minutes</span> today
+        </p>
+</div>
+<div class="bg-slate-50 rounded-xl p-3">
+<p class="text-base text-slate-600 italic">Good for your heart and energy.</p>
+</div>
+</article>
+<!-- END: AdviceCard_Walking -->
+<!-- BEGIN: AdviceCard_Water -->
+<article class="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 flex flex-col gap-4" data-purpose="advice-card">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center flex-shrink-0" data-purpose="icon-wrapper">
+<svg fill="none" height="32" stroke="#2563eb" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>
+</div>
+<p class="advice-text text-xl sm:text-2xl text-slate-800">
+          Drink a <span class="text-blue-600 font-bold">glass of water</span> now
+        </p>
+</div>
+<div class="bg-slate-50 rounded-xl p-3">
+<p class="text-base text-slate-600 italic">Helps your kidneys stay healthy.</p>
+</div>
+</article>
+<!-- END: AdviceCard_Water -->
+<!-- BEGIN: AdviceCard_Posture -->
+<article class="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 flex flex-col gap-4" data-purpose="advice-card">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center flex-shrink-0" data-purpose="icon-wrapper">
+<svg fill="none" height="32" stroke="#16a34a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M7 18v-6a5 5 0 0 1 10 0v6"></path><path d="M5 18h14"></path><path d="M15 6a3 3 0 1 0-6 0"></path></svg>
+</div>
+<p class="advice-text text-xl sm:text-2xl text-slate-800">
+          Stretch your <span class="text-green-600 font-bold">arms and back</span>
+</p>
+</div>
+<div class="bg-slate-50 rounded-xl p-3">
+<p class="text-base text-slate-600 italic">Reduces stiffness and keeps you flexible.</p>
+</div>
+</article>
+<!-- END: AdviceCard_Posture -->
+<!-- BEGIN: AdviceCard_Social -->
+<article class="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 flex flex-col gap-4" data-purpose="advice-card">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center flex-shrink-0" data-purpose="icon-wrapper">
+<svg fill="none" height="32" stroke="#9333ea" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+</div>
+<p class="advice-text text-xl sm:text-2xl text-slate-800">
+          Call a <span class="text-purple-600 font-bold">friend or family</span>
+</p>
+</div>
+<div class="bg-slate-50 rounded-xl p-3">
+<p class="text-base text-slate-600 italic">Connecting with others boosts your mood.</p>
+</div>
+</article>
+<!-- END: AdviceCard_Social -->
+</main>
+<!-- END: AdviceFeed -->
+<!-- BEGIN: NavigationFooter -->
+<footer class="bg-white border-t border-slate-200 fixed bottom-0 w-full safe-area-inset-bottom" data-purpose="bottom-navigation">
+<nav class="flex justify-around items-center py-3">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+<span class="text-xs font-semibold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-blue-600" href="#">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"></path><path d="M12 7v5l3 3"></path></svg>
+<span class="text-xs font-bold">Advice</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+<span class="text-xs font-semibold">Profile</span>
+</a>
+</nav>
+</footer>
+<!-- END: NavigationFooter -->
+<!-- Spacer to prevent content from being hidden behind sticky footer -->
+<div class="h-24"></div>
+</body></html>
