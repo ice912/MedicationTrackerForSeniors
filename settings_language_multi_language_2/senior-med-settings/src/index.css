@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ec5b13;
+  --color-background-light: #f8f6f6;
+  --color-background-dark: #221610;
+  --font-display: "Public Sans", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased;
+    min-height: max(884px, 100dvh);
+  }
+}
+
+/* Custom scrollbar for senior visibility */
+.custom-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #ec5b13;
+  border-radius: 10px;
+}

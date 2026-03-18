@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-senior-blue: #EBF4FF;
+  --color-senior-accent: #2B6CB0;
+  --color-senior-text: #2D3748;
+  --color-soft-gray: #F7FAFC;
+  
+  --font-senior-base: 1.125rem;
+  --font-senior-title: 1.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-soft-gray text-senior-text;
+    font-family: system-ui, -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.touch-target {
+  min-height: 64px;
+}

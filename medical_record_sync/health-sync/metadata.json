@@ -1,0 +1,5 @@
+{
+  "name": "Health Sync",
+  "description": "A secure and senior-friendly application to sync medical records from hospitals or paper documents.",
+  "requestFramePermissions": ["camera"]
+}
