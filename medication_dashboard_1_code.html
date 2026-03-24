@@ -1,306 +1,116 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Medication Dashboard</title>
-<!-- Load Tailwind CSS v3 with forms and container-queries plugins -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<style data-purpose="typography">
-    /* Enhancing readability for seniors with slightly increased line heights */
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Medication Dashboard</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style>
     body {
       font-family: system-ui, -apple-system, sans-serif;
       line-height: 1.6;
+      background-color: #FFDBFD;
+      color: #2C3E50;
     }
+
     .large-text-btn {
       font-size: 1.25rem;
       font-weight: 700;
     }
   </style>
-<style data-purpose="color-theme">
-    /* High contrast but warm color palette */
-    :root {
-      --bg-theme: #FFDBFD;
-      --card-bg: #FFFFFF;
-      --accent-main: #6367FF;
-      --status-taken: #6367FF;
-      --status-pending: #8494FF;
-      --text-main: #2C3E50;
-    }
-    body {
-      background-color: var(--bg-theme);
-      color: var(--text-main);
-    }
-  </style>
 </head>
-<body class="min-h-screen p-4">
-<!-- BEGIN: MainHeader -->
-<header class="mb-8 pt-4" data-purpose="header">
-<h1 class="text-4xl font-extrabold text-gray-900 mb-2">My Daily Meds</h1>
-<p class="text-xl text-gray-600 font-semibold" id="current-date">Today, Wednesday Oct 25</p>
-</header>
-<!-- END: MainHeader -->
-<!-- BEGIN: DashboardContent -->
-<main class="space-y-8 pb-24">
-<!-- SECTION: Morning Meds -->
-<section data-purpose="medication-group">
-<div class="flex items-center gap-3 mb-4">
-<span class="p-2 bg-[#C9BEFF] rounded-full">
-<!-- Sunrise Icon -->
-<svg class="w-8 h-8 text-[#6367FF]" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.344l-.707-.707M12 5a7 7 0 000 14a7 7 0 000-14z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</span>
-<h2 class="text-3xl font-bold">Morning</h2>
-</div>
-<!-- Medication Card 1 -->
-<article class="bg-white rounded-3xl shadow-lg border-2 border-gray-100 p-5 mb-4" data-purpose="medication-item">
-<div class="flex justify-between items-start mb-4">
-<div>
-<h3 class="text-2xl font-black text-gray-900">Lisinopril</h3>
-<p class="text-lg text-gray-700 mt-1">For high blood pressure</p>
-</div>
-<div class="flex flex-col items-center">
-<span class="text-[#6367FF]">
-<svg class="w-10 h-10" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-</span>
-<span class="text-sm font-bold text-[#6367FF] uppercase">Taken</span>
-</div>
-</div>
-<button class="w-full bg-gray-100 text-gray-500 py-4 rounded-2xl large-text-btn cursor-not-allowed border-b-4 border-gray-200" disabled="">
-          Already Taken
-        </button>
-</article>
-<!-- Medication Card 2 -->
-<article class="bg-white rounded-3xl shadow-lg border-2 border-gray-100 p-5" data-purpose="medication-item">
-<div class="flex justify-between items-start mb-4">
-<div>
-<h3 class="text-2xl font-black text-gray-900">Multivitamin</h3>
-<p class="text-lg text-gray-700 mt-1">General health</p>
-</div>
-<div class="flex flex-col items-center">
-<span class="text-[#8494FF]">
-<svg class="w-10 h-10" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" fill-rule="evenodd"></path>
-</svg>
-</span>
-<span class="text-sm font-bold text-[#6367FF] uppercase">Pending</span>
-</div>
-</div>
-<button class="w-full bg-[#6367FF] hover:bg-[#8494FF] text-white py-5 rounded-2xl large-text-btn shadow-md border-b-4 border-[#6367FF] active:translate-y-1 active:border-b-0 transition-all">
-          I TOOK THIS
-        </button>
-</article>
-</section>
-<!-- SECTION: Afternoon Meds -->
-<section data-purpose="medication-group">
-<div class="flex items-center gap-3 mb-4 mt-10">
-<span class="p-2 bg-[#FFDBFD] rounded-full">
-<!-- Sun Icon -->
-<svg class="w-8 h-8 text-[#8494FF]" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.344l-.707-.707M12 5a7 7 0 110 14 7 7 0 010-14z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</span>
-<h2 class="text-3xl font-bold">Afternoon</h2>
-</div>
-<article class="bg-white rounded-3xl shadow-lg border-2 border-gray-100 p-5" data-purpose="medication-item">
-<div class="flex justify-between items-start mb-4">
-<div>
-<h3 class="text-2xl font-black text-gray-900">Metformin</h3>
-<p class="text-lg text-gray-700 mt-1">For blood sugar</p>
-</div>
-<div class="flex flex-col items-center opacity-40">
-<span class="text-gray-400">
-<svg class="w-10 h-10" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" fill-rule="evenodd"></path>
-</svg>
-</span>
-</div>
-</div>
-<button class="w-full bg-[#6367FF] hover:bg-[#8494FF] text-white py-5 rounded-2xl large-text-btn shadow-md border-b-4 border-[#6367FF] active:translate-y-1 active:border-b-0 transition-all">
-          I TOOK THIS
-        </button>
-</article>
-</section>
-<!-- SECTION: Evening Meds -->
-<section data-purpose="medication-group">
-<div class="flex items-center gap-3 mb-4 mt-10">
-<span class="p-2 bg-[#C9BEFF] rounded-full">
-<!-- Moon Icon -->
-<svg class="w-8 h-8 text-[#6367FF]" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</span>
-<h2 class="text-3xl font-bold">Evening</h2>
-</div>
-<article class="bg-white rounded-3xl shadow-lg border-2 border-gray-100 p-5" data-purpose="medication-item">
-<div class="flex justify-between items-start mb-4">
-<div>
-<h3 class="text-2xl font-black text-gray-900">Atorvastatin</h3>
-<p class="text-lg text-gray-700 mt-1">For cholesterol</p>
-</div>
-<div class="flex flex-col items-center opacity-40">
-<span class="text-gray-400">
-<svg class="w-10 h-10" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" fill-rule="evenodd"></path>
-</svg>
-</span>
-</div>
-</div>
-<button class="w-full bg-[#6367FF] hover:bg-[#8494FF] text-white py-5 rounded-2xl large-text-btn shadow-md border-b-4 border-[#6367FF] active:translate-y-1 active:border-b-0 transition-all">
-          I TOOK THIS
-        </button>
-</article>
-</section>
-</main>
-<!-- END: DashboardContent -->
-<!-- BEGIN: BottomNavigation -->
-<nav class="fixed bottom-0 left-0 right-0 bg-white border-t-4 border-gray-100 px-6 py-4 flex justify-around items-center" data-purpose="navigation">
-<button class="flex flex-col items-center text-[#6367FF]">
-<svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span class="text-xs font-bold uppercase mt-1">Home</span>
-</button>
-<button class="flex flex-col items-center text-gray-400">
-<svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 6v6m0 0v6m0-6h6m-6 0H6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span class="text-xs font-bold uppercase mt-1">Add New</span>
-</button>
-<button class="flex flex-col items-center text-gray-400">
-<svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<span class="text-xs font-bold uppercase mt-1">Profile</span>
-</button>
-</nav>
-<!-- END: BottomNavigation -->
-<script data-purpose="api-integration">
-    const API_URL = "http://127.0.0.1:8888/api/dashboard"; 
-    const TAKE_URL = "http://127.0.0.1:8888/api/medications/log";
 
+<body class="min-h-screen p-4">
+  <header class="mb-8 pt-4">
+    <h1 class="text-4xl font-extrabold text-gray-900 mb-2">My Daily Meds</h1>
+    <p class="text-xl text-gray-600 font-semibold" id="current-date">Loading date...</p>
+  </header>
+
+  <main id="medication-container" class="space-y-8 pb-24">
+    <!-- 자바스크립트가 여기에 약 목록을 생성합니다 -->
+    <p class="text-center text-gray-500">Connecting to server...</p>
+  </main>
+
+  <script>
+    const API_BASE = "http://127.0.0.1:8000";
+
+    // 1. 대시보드 데이터 불러오기 및 화면 그리기
     async function loadDashboard() {
       try {
-        const res = await fetch(API_URL);
-        const data = await res.json();
-        console.log("데이터 로드 성공:", data);
-        renderData(data);
-      } catch (err) {
-        console.error("연결 에러:", err);
-      }
-    }
+        const response = await fetch(`${API_BASE}/api/dashboard`);
+        const data = await response.json();
 
-    function renderData(data) {
-      // Update date using backend data, fallback to local
-      const dateEl = document.getElementById('current-date');
-      if (data.date_display) {
-          dateEl.innerText = data.date_display;
-      } else {
-          const now = new Date();
-          const options = { weekday: 'long', month: 'short', day: 'numeric' };
-          dateEl.innerText = `Today, ${now.toLocaleDateString('en-US', options)}`;
-      }
-      
-      const mainEl = document.querySelector('main');
-      mainEl.innerHTML = ''; // 화면 초기화 (정적 데이터 제거)
+        // 날짜 업데이트
+        document.getElementById('current-date').innerText = data.date_display;
 
-      const periods = [
-        { key: 'morning', label: 'Morning', bg: 'bg-[#C9BEFF]', text: 'text-[#6367FF]', icon: '<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.344l-.707-.707M12 5a7 7 0 000 14a7 7 0 000-14z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>' },
-        { key: 'afternoon', label: 'Afternoon', bg: 'bg-[#FFDBFD]', text: 'text-[#8494FF]', icon: '<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.344l-.707-.707M12 5a7 7 0 110 14 7 7 0 010-14z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>' },
-        { key: 'evening', label: 'Evening', bg: 'bg-[#C9BEFF]', text: 'text-[#6367FF]', icon: '<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>' }
-      ];
+        const container = document.getElementById('medication-container');
+        container.innerHTML = ""; // 기존 내용 비우기
 
-      periods.forEach((period, idx) => {
-        const meds = data.grouped_medications[period.key];
-        if (!meds || meds.length === 0) return;
+        // 시간대별 그룹 순회 (Morning, Afternoon, Evening)
+        for (const [time, meds] of Object.entries(data.grouped_medications)) {
+          if (meds.length === 0) continue;
 
-        let sectionHtml = `
-          <section data-purpose="medication-group">
-            <div class="flex items-center gap-3 mb-4 ${idx > 0 ? 'mt-10' : ''}">
-              <span class="p-2 ${period.bg} rounded-full">
-                <svg class="w-8 h-8 ${period.text}" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  ${period.icon}
-                </svg>
-              </span>
-              <h2 class="text-3xl font-bold">${period.label}</h2>
+          const section = document.createElement('section');
+          section.innerHTML = `
+            <div class="flex items-center gap-3 mb-4 mt-6">
+              <h2 class="text-3xl font-bold capitalize">${time}</h2>
             </div>
-        `;
+          `;
 
-        meds.forEach((item, itemIdx) => {
-          const isTaken = item.is_taken;
-          sectionHtml += `
-            <article class="bg-white rounded-3xl shadow-lg border-2 border-gray-100 p-5 ${itemIdx < meds.length - 1 ? 'mb-4' : ''}" data-purpose="medication-item">
+          meds.forEach(item => {
+            const med = item.medication;
+            const isTaken = item.is_taken;
+
+            const card = document.createElement('article');
+            card.className = "bg-white rounded-3xl shadow-lg border-2 border-gray-100 p-5 mb-4";
+            card.innerHTML = `
               <div class="flex justify-between items-start mb-4">
                 <div>
-                  <h3 class="text-2xl font-black text-gray-900">${item.medication.name}</h3>
-                  <p class="text-lg text-gray-700 mt-1">${item.display_text}</p>
+                  <h3 class="text-2xl font-black text-gray-900">${med.name}</h3>
+                  <p class="text-lg text-gray-700 mt-1">${med.purpose}</p>
                 </div>
                 <div class="flex flex-col items-center">
-                  ${isTaken ? `
-                    <span class="text-[#6367FF]">
-                      <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path></svg>
-                    </span>
-                    <span class="text-sm font-bold text-[#6367FF] uppercase">Taken</span>
-                  ` : `
-                    <span class="text-[#8494FF]">
-                      <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" fill-rule="evenodd"></path></svg>
-                    </span>
-                    <span class="text-sm font-bold text-[#6367FF] uppercase">Pending</span>
-                  `}
+                  <span class="${isTaken ? 'text-[#6367FF]' : 'text-gray-300'}">
+                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                  </span>
+                  <span class="text-sm font-bold uppercase">${isTaken ? 'Taken' : 'Pending'}</span>
                 </div>
               </div>
-              ${isTaken ? `
-                <button onclick="undoTaken('${item.medication.id}')" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-600 py-4 rounded-2xl large-text-btn border-b-4 border-gray-300 active:translate-y-1 active:border-b-0 transition-all">
-                  Already Taken (Undo)
-                </button>
-              ` : `
-                <button onclick="markTaken('${item.medication.id}')" class="w-full bg-[#6367FF] hover:bg-[#8494FF] text-white py-5 rounded-2xl large-text-btn shadow-md border-b-4 border-[#6367FF] active:translate-y-1 active:border-b-0 transition-all">
-                  ${item.button_text}
-                </button>
-              `}
-            </article>
-          `;
-        });
-
-        sectionHtml += `</section>`;
-        mainEl.innerHTML += sectionHtml;
-      });
-    }
-
-    async function markTaken(medId) {
-      try {
-        const res = await fetch(TAKE_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ med_id: medId })
-        });
-        if (res.ok) {
-          loadDashboard(); // 상태 업데이트 후 UI 다시 그리기
-        }
-      } catch(err) {
-        console.error("완료 처리 에러:", err);
-      }
-    }
-
-    async function undoTaken(medId) {
-      try {
-        const response = await fetch(`http://127.0.0.1:8888/api/undo-medication/${medId}`, {
-          method: 'POST',
-        });
-        
-        if (response.ok) {
-          alert("복용 취소가 완료되었습니다.");
-          loadDashboard(); // 화면 다시 그리기 (새로고침 없이)
+              <button 
+                onclick="${isTaken ? `undoMedication('${med.id}')` : `takeMedication('${med.id}')`}"
+                class="w-full ${isTaken ? 'bg-gray-100 text-gray-500' : 'bg-[#6367FF] text-white'} py-5 rounded-2xl large-text-btn shadow-md border-b-4 ${isTaken ? 'border-gray-200' : 'border-[#4b4efc]'} transition-all active:translate-y-1">
+                ${isTaken ? 'UNDO TAKEN' : 'I TOOK THIS'}
+              </button>
+            `;
+            section.appendChild(card);
+          });
+          container.appendChild(section);
         }
       } catch (error) {
-        console.error("Undo 실패:", error);
+        document.getElementById('medication-container').innerHTML =
+          `<p class="text-red-500 text-center">Server not found. Please run Dashboard.py first.</p>`;
       }
     }
 
-    // 초기 데이터 로드 호출
-    loadDashboard();
+    // 2. 약 복용 처리
+    async function takeMedication(medId) {
+      const response = await fetch(`${API_BASE}/api/medications/log`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ med_id: medId })
+      });
+      if (response.ok) loadDashboard();
+    }
+
+    // 3. 복용 취소 처리
+    async function undoMedication(medId) {
+      const response = await fetch(`${API_BASE}/api/undo-medication/${medId}`, { method: 'POST' });
+      if (response.ok) loadDashboard();
+    }
+
+    window.onload = loadDashboard;
   </script>
-</body></html>
+</body>
+
+</html>
